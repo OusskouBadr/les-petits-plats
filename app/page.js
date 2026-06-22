@@ -1,11 +1,36 @@
+import recipes from "@/data/recipes.json";
 import styles from "./page.module.css";
+import RecipeCard from "@/components/RecipeCard/RecipeCard";
 
 export default function Home() {
   return (
-    <div>
-      <h1>
-        Bienvenue sur le projet
-      </h1>
-    </div>
+    <main className={styles.page}>
+      <section className={styles.hero}>
+        <h1>
+          Découvrez nos recettes <br />
+          du quotidien, simples et délicieuses
+        </h1>
+
+      </section>
+
+      <section className={styles.recipesSection}>
+        <div className={styles.resultsHeader}>
+          <h2>Recettes</h2>
+          {/* Le compteur vient directement du tableau de recettes */}
+          <span>{recipes.length} recettes</span>
+        </div>
+
+        {/* 
+          On transforme chaque objet recette en composant RecipeCard.
+          La prop "key" aide React à identifier chaque élément dans la liste.
+          Ici on utilise l'id de la recette pour avoir une key stable
+        */}
+        <div className={styles.recipesGrid}>
+          {recipes.map((recipe) => (
+            <RecipeCard key={recipe.id} recipe={recipe} />
+          ))}
+        </div>
+      </section>
+    </main>
   );
 }
