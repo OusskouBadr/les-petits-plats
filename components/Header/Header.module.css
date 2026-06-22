@@ -1,0 +1,40 @@
+.header {
+  position: absolute;
+  top: 51px;
+  left: 69px;
+  z-index: 10;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: white;
+  font-family: var(--font-anton);
+  font-size: 25px;
+  line-height: 1;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.logoIcon {
+  width: 18px;
+  height: 18px;
+  border: 2px solid white;
+  border-radius: 50%;
+  position: relative;
+  top: 1px;
+  flex-shrink: 0;
+}
+
+.logoIcon::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: white;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

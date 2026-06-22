@@ -11,6 +11,16 @@ export default function Home() {
           du quotidien, simples et délicieuses
         </h1>
 
+        <form className={styles.searchForm}>
+          <input
+            type="search"
+            placeholder="Rechercher une recette, un ingrédient, ..."
+            aria-label="Rechercher une recette"
+          />
+          <button type="submit" aria-label="Lancer la recherche">
+            <img src="assets/icons/search.svg" alt=""/>
+          </button>
+        </form>
       </section>
 
       <section className={styles.recipesSection}>

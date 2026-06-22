@@ -1,0 +1,67 @@
+.notFoundPage {
+    min-height: 100vh;
+    background: #ededed;
+}
+
+.notFoundHero {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background-image: linear-gradient(
+        rgba(0, 0, 0, 0.55),
+        rgba(0, 0, 0, 0.75)
+    ),
+    url("../public/assets/images/hero-banner.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content {
+    text-align: center;
+}
+
+.content h1 {
+    margin: 0 0 24px;
+    color: #ffd15b;
+    font-family: var(--font-anton);
+    font-size: 70px;
+    line-height: 1;
+}
+
+.content p {
+    margin: 0;
+    color: white;
+    font-family: var(--font-anton);
+    font-size: 40px;
+    line-height: 1.2;
+}
+
+.homeLink {
+    display: inline-block;
+    margin-top: 32px;
+    color: #ffd15b;
+    font-family: var(--font-anton);
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.homeLink:hover {
+    text-decoration: underline 2px ;
+    font-size: 17px ;
+}
+
+.copyright {
+    position: absolute;
+    bottom: 48px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    color: white;
+    font-family: var(--font-manrope);
+    font-size: 12px;
+}
