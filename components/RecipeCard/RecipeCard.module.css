@@ -7,6 +7,13 @@
     box-shadow: 0 4px 34px 30px rgba(0, 0, 0, 0.04);
 }
 
+.cardLink {
+    display: block;
+    height: 100%;
+    color: inherit;
+    text-decoration: none;
+}
+
 .imageWrapper {
     position: relative;
     width: 100%;
