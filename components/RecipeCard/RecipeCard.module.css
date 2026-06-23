@@ -1,8 +1,10 @@
 .card {
+    width: 380px;
+    height: 731px;
     background: white;
-    border-radius: 20px;
+    border-radius: 21px;
     overflow: hidden;
-    width: 100%;
+    box-shadow: 0 4px 34px 30px rgba(0, 0, 0, 0.04);
 }
 
 .imageWrapper {
@@ -18,37 +20,103 @@
     height: 253px;
 }
 
-.cardContent {
-    padding: 24px;
-}
-
-.cardHeader {
-    display: flex;
-    justify-content: space-between;
-    gap: 16px;
-    margin-bottom: 24px;
-}
-
-.cardHeader h2 {
-    font-size: 18px;
-    margin: 0;
-}
-
-.cardHeader span {
+.recipeTime {
+    position: absolute;
+    top: 21px;
+    right: 20px;
     white-space: nowrap;
+
+    width: 63px;
+    height: 26px;
+    padding: 5px 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+    background: #ffd15b;
+
+    font-family: var(--font-manrope);
+    font-size: 12px;
+    color: #1b1b1b;
+    box-sizing: border-box;
+}
+
+.cardContent {
+    height: calc(731px - 253px);
+    padding: 32px 25px 60px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.cardTitle {
+    margin: 0 0 32px;
+    font-family: var(--font-anton);
+    font-size: 18px;
+    font-weight: 400;
+    color: #000;
+}
+
+.recipeSection {
+    margin-bottom: 32px;
+}
+
+.sectionTitle {
+    margin: 0 0 15px;
+    font-family: var(--font-manrope);
+    font-size: 12px;
     font-weight: 700;
+    color: #7a7a7a;
+    letter-spacing: 0.08em;
+}
+
+.description {
+    margin: 0;
+    font-family: var(--font-manrope);
+    font-size: 14px;
+    line-height: 1.35;
+    color: #1b1b1b;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.ingredientsSection {
+    margin-top: 0;
 }
 
 .ingredients {
     list-style: none;
     padding: 0;
-    margin: 0 0 24px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px 16px;
-} 
-
-.description {
     margin: 0;
-    line-height: 1.5;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 21px 24px;
+
+    font-family: var(--font-manrope);
+    font-size: 14px;
+    color: #1b1b1b;
+}
+
+.ingredientItem {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.ingredientName {
+    font-family: var(--font-manrope);
+    font-size: 14px;
+    color: #1b1b1b;
+}
+
+.ingredientQuantity {
+    font-family: var(--font-manrope);
+    font-size: 14px;
+    color: #7a7a7a;
 }

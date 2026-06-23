@@ -18,16 +18,31 @@ export default function Home() {
             aria-label="Rechercher une recette"
           />
           <button type="submit" aria-label="Lancer la recherche">
-            <img src="assets/icons/search.svg" alt=""/>
+            <img src="/assets/icons/search.svg" alt=""/>
           </button>
         </form>
       </section>
 
       <section className={styles.recipesSection}>
-        <div className={styles.resultsHeader}>
-          <h2>Recettes</h2>
-          {/* Le compteur vient directement du tableau de recettes */}
-          <span>{recipes.length} recettes</span>
+        <div className={styles.filtersBar}>
+            <div className={styles.filters}>
+                <button type="button" className={styles.filterButton}>
+                  <span>Ingrédients</span>
+                  <span className={styles.chevron} aria-hidden="true" />
+                </button>
+
+                <button type="button" className={styles.filterButton}>
+                  <span>Appareils</span>
+                  <span className={styles.chevron} aria-hidden="true" />
+                </button>
+
+                <button type="button" className={styles.filterButton}>
+                  <span>Ustensiles</span>
+                  <span className={styles.chevron} aria-hidden="true" />
+                </button>
+            </div>
+
+            <span className={styles.recipesCount}>{recipes.length} recettes</span>
         </div>
 
         {/* 
