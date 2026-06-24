@@ -1,0 +1,58 @@
+.selectedTags {
+    width: 1240px;
+    margin: -24px auto 48px;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.selectedTag {
+    min-width: 89px;
+    height: 53px;
+    padding: 0 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+
+    border: none;
+    border-radius: 10px;
+    background: #FFD15B;
+
+    font-family: var(--font-manrope);
+    font-size: 14px;
+    font-weight: 400;
+    color: #000000;
+    cursor: pointer;
+}
+
+.removeTagIcon {
+  position: relative;
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.removeTagIcon::before,
+.removeTagIcon::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+
+  width: 14px;
+  height: 2px;
+
+  background: #000000;
+  border-radius: 2px;
+}
+
+.removeTagIcon::before {
+  transform: rotate(45deg);
+}
+
+.removeTagIcon::after {
+  transform: rotate(-45deg);
+}

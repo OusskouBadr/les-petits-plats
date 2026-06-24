@@ -98,51 +98,23 @@
     justify-content: space-between;
 }
 
-.filterButton {
-  width: 195px;
-  height: 56px;
-  padding: 0 18px;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  border: none;
-  border-radius: 11px;
-  background: white;
-
-  font-family: var(--font-manrope);
-  font-size: 16px;
-  color: #1b1b1b;
-  cursor: pointer;
-}
-
-.chevron {
-  width: 10px;
-  height: 10px;
-  border-right: 1.5px solid #1b1b1b;
-  border-bottom: 1.5px solid #1b1b1b;
-  transform: rotate(45deg);
-  margin-top: -4px;
-}
-
 .recipesCount {
-  font-family: var(--font-anton);
-  font-size: 21px;
+    font-family: var(--font-anton);
+    font-size: 21px;
 }
 
 .recipesSection {
-  background: #ededed;
-  padding: 48px 0 80px;
+    background: #ededed;
+    padding: 48px 0 80px;
 }
 
 .recipesGrid {
-  width: 1240px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(3, 380px);
-  justify-content: space-between;
-  row-gap: 64px;
+    width: 1240px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 380px);
+    justify-content: space-between;
+    row-gap: 64px;
 }
 
 /* RESPONSIVE ZONE  */ 

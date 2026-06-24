@@ -4,74 +4,96 @@ import recipes from "@/data/recipes.json";
 import styles from "./page.module.css";
 import RecipeCard from "@/components/RecipeCard/RecipeCard";
 import { searchRecipes } from "./lib/search";
+import { getFilter, filterRecipesByTags } from "./lib/filters";
+import FilterOptions from "@/components/FilterOptions/FilterOptions";
+import SelectedTags from "@/components/SelectedTags/SelectedTags";
+
 
 export default function Home() {
   const [ search , setSearch ] = useState("")
-  const filteredRecipes = searchRecipes(recipes, search);
+  const [selectedTags, setSelectedTags] = useState([]);
+
+  const recipesAfterSearch = searchRecipes(recipes, search);
+  const filteredRecipes = filterRecipesByTags(recipesAfterSearch, selectedTags);
+  const filterOptions = getFilter(filteredRecipes);
 
   const noResult = search.trim().length >= 3 && filteredRecipes.length === 0
 
-    return (
-      <main className={styles.page}>
-        <section className={styles.hero}>
-          <h1>
-            Découvrez nos recettes <br />
-            du quotidien, simples et délicieuses
-          </h1>
+  // Fonction qui permets de gérer les tags 
+  function addTag(type, value) {
+    const newTag = {
+      type,
+      value,
+    };
+    
+    setSelectedTags((currentTags) => {
+      const tagAlreadyExists = currentTags.some(
+        (tag) => tag.type === type && tag.value === value
+      );
 
-          <form className={styles.searchForm}>
-            <input
-              type="search"
-              placeholder="Rechercher une recette, un ingrédient, ..."
-              aria-label="Rechercher une recette"
-              value={search}
-              onChange={(event) => setSearch(event.target.value)}
-            />
-            <button type="submit" aria-label="Lancer la recherche">
-              <img src="/assets/icons/search.svg" alt=""/>
-            </button>
-          </form>
-        </section>
+      if (tagAlreadyExists) {
+        return currentTags;
+      }
 
-        <section className={styles.recipesSection}>
-          <div className={styles.filtersBar}>
-              <div className={styles.filters}>
-                  <button type="button" className={styles.filterButton}>
-                    <span>Ingrédients</span>
-                    <span className={styles.chevron} aria-hidden="true" />
-                  </button>
+      return [...currentTags, newTag];
+    });
+  }
 
-                  <button type="button" className={styles.filterButton}>
-                    <span>Appareils</span>
-                    <span className={styles.chevron} aria-hidden="true" />
-                  </button>
-
-                  <button type="button" className={styles.filterButton}>
-                    <span>Ustensiles</span>
-                    <span className={styles.chevron} aria-hidden="true" />
-                  </button>
-              </div>
-
-            <span className={styles.recipesCount}>{filteredRecipes.length} recettes</span>
-          </div>
-
-          {/* 
-            On transforme chaque objet recette en composant RecipeCard.
-            La prop "key" aide React à identifier chaque élément dans la liste.
-            Ici on utilise l'id de la recette pour avoir une key stable
-          */}
-          {noResult ? (  
-            <p className={styles.noResultMessage}>
-              Aucune recette ne contient “{search}”. Vous pouvez chercher “tarte aux pommes”, “poisson”, etc.
-            </p>
-          ) : (
-            <div className={styles.recipesGrid}>
-              {filteredRecipes.map((recipe) => (
-                <RecipeCard key={recipe.id} recipe={recipe} />
-              ))}
-            </div>
-          )}
-        </section>
-      </main>
+  function removeTag(type, value) {
+    setSelectedTags((currentTags) =>
+      currentTags.filter(
+        (tag) => !(tag.type === type && tag.value === value)
+      )
     );
+  }  
+  return (
+    <main className={styles.page}>
+      <section className={styles.hero}>
+        <h1>
+          Découvrez nos recettes <br />
+          du quotidien, simples et délicieuses
+        </h1>
+
+        <form className={styles.searchForm}>
+          <input
+            type="search"
+            placeholder="Rechercher une recette, un ingrédient, ..."
+            aria-label="Rechercher une recette"
+            value={search}
+            onChange={(event) => setSearch(event.target.value)}
+          />
+          <button type="submit" aria-label="Lancer la recherche">
+            <img src="/assets/icons/search.svg" alt=""/>
+          </button>
+        </form>
+      </section>
+
+      <section className={styles.recipesSection}>
+        <div className={styles.filtersBar}>
+          <FilterOptions title="Ingrédients" type="ingredient" options={filterOptions.ingredients} onSelect={addTag} selectedTags={selectedTags}/>
+          <FilterOptions title="Appareils" type="appliance" options={filterOptions.appliances} onSelect={addTag} selectedTags={selectedTags} />
+          <FilterOptions title="Ustensiles" type="appliance" options={filterOptions.ustensils} onSelect={addTag} selectedTags={selectedTags} />
+          <span className={styles.recipesCount}>{filteredRecipes.length} recettes</span>
+        </div>
+
+      <SelectedTags selectedTags={selectedTags} removeTag={removeTag} />
+
+        {noResult ? (  
+          <p className={styles.noResultMessage}>
+            Aucune recette ne contient “{search}”. Vous pouvez chercher “tarte aux pommes”, “poisson”, etc.
+          </p>
+        ) : (
+        // On transforme chaque objet recette en composant RecipeCard.
+        // La prop "key" aide React à identifier chaque élément dans la liste.
+        // Ici on utilise l'id de la recette pour avoir une key stable
+          <div className={styles.recipesGrid}>
+            {filteredRecipes.map((recipe) => (
+              <RecipeCard key={recipe.id} recipe={recipe} />
+            ))}
+          </div>
+          
+        )}
+      </section>
+    </main>
+  );
 }

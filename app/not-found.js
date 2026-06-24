@@ -14,9 +14,6 @@ export default function NotFound() {
                 </Link>
             </div>
 
-            <p className={styles.copyright}>
-                Copyright &copy; 2026 - Les Petits Plats
-            </p>
             </section>
         </main>
     )
