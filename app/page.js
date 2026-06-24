@@ -3,13 +3,13 @@ import { useState } from "react";
 import recipes from "@/data/recipes.json";
 import styles from "./page.module.css";
 import RecipeCard from "@/components/RecipeCard/RecipeCard";
+import { searchRecipes } from "./lib/search";
 
 export default function Home() {
   const [ search , setSearch ] = useState("")
+  const filteredRecipes = searchRecipes(recipes, search);
 
-  const filteredRecipes = 
-  // si search contient au moins 3 caractères → on filtre                            sinon → on affiche toutes les recettes
-    search.length >= 3 ? recipes.filter((recipe) => recipe.name.toLowerCase().includes(search.toLowerCase())) : recipes;
+  const noResult = search.trim().length >= 3 && filteredRecipes.length === 0
 
     return (
       <main className={styles.page}>
@@ -60,11 +60,17 @@ export default function Home() {
             La prop "key" aide React à identifier chaque élément dans la liste.
             Ici on utilise l'id de la recette pour avoir une key stable
           */}
-          <div className={styles.recipesGrid}>
-            {filteredRecipes.map((recipe) => (
-              <RecipeCard key={recipe.id} recipe={recipe} />
-            ))}
-          </div>
+          {noResult ? (  
+            <p className={styles.noResultMessage}>
+              Aucune recette ne contient “{search}”. Vous pouvez chercher “tarte aux pommes”, “poisson”, etc.
+            </p>
+          ) : (
+            <div className={styles.recipesGrid}>
+              {filteredRecipes.map((recipe) => (
+                <RecipeCard key={recipe.id} recipe={recipe} />
+              ))}
+            </div>
+          )}
         </section>
       </main>
     );

@@ -1,0 +1,13 @@
+.footer {
+    min-height: 138px;
+    background: #000000;
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: var(--font-manrope);
+    font-size: 16px;
+    font-weight: 500;
+}

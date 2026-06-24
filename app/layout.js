@@ -1,6 +1,7 @@
 import Header from "@/components/Header/Header";
 import { Anton, Manrope } from "next/font/google"
 import "./globals.css";
+import Footer from "@/components/Footer/Footer";
 
 const anton = Anton({
   substers: ["latin"],
@@ -21,9 +22,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="fr">
-      <body className={`${anton.variable} ${manrope.variable}`}>
-      <Header />
-      {children}
+      <body className={` ${anton.variable} ${manrope.variable}`}>
+        <div className="app">
+          <Header />
+          {children}
+          <Footer />
+        </div>  
       </body>
     </html>
   );

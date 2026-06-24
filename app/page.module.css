@@ -1,3 +1,8 @@
+.page {
+  flex: 1;
+  background: #ededed;
+}
+
 .hero {
   min-height: 560px;
   padding: 140px 24px 80px;
@@ -71,18 +76,26 @@
   display: block;
   color: #FFFFFF;
 }
+.noResultMessage {
+    width: 1240px;
+    margin: 0 auto;
+    font-family: var(--font-manrope);
+    font-size: 18px;
+    line-height: 1.5;
+    color: #1b1b1b;
+}
 
 .filters {
-  display: flex;
-  gap: 64px;
+    display: flex;
+    gap: 64px;
 }
 
 .filtersBar {
-  width: 1240px;
-  margin: 0 auto 48px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+    width: 1240px;
+    margin: 0 auto 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .filterButton {

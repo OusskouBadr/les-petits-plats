@@ -87,10 +87,6 @@ export default async function RecipePage({ params }) {
           </section>
         </article>
       </section>
-
-      <footer className={styles.footer}>
-        Copyright &copy; 2026 - Les Petits Plats
-      </footer>
     </main>
   );
 }
