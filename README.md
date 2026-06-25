@@ -1,36 +1,87 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Les Petits Plats
 
-## Getting Started
+Application de recherche de recettes développée avec Next.js dans le cadre du projet OpenClassrooms.
 
-First, run the development server:
+## Description
+
+Les Petits Plats permet de rechercher rapidement des recettes à partir d’un mot-clé ou de filtres avancés.
+
+L’utilisateur peut filtrer les recettes par :
+
+* nom de recette ;
+* ingrédient ;
+* description ;
+* appareil ;
+* ustensile.
+
+Les filtres sont cumulatifs et les options disponibles sont recalculées selon les recettes affichées.
+
+## Fonctionnalités
+
+* Affichage des recettes sous forme de cartes
+* Recherche principale à partir de 3 caractères
+* Recherche dans le nom, les ingrédients et la description
+* Filtres avancés par ingrédients, appareils et ustensiles
+* Tags actifs pour les filtres sélectionnés
+* Suppression des tags
+* Page détail pour chaque recette
+* Page 404 personnalisée
+* Responsive desktop, tablette et mobile
+
+## Technologies utilisées
+
+* Next.js
+* React
+* JavaScript
+* CSS Modules
+* HTML / CSS
+
+## Installation
+
+Cloner le projet :
+
+```bash
+git clone https://github.com/OusskouBadr/les-petits-plats.git
+```
+
+Installer les dépendances :
+
+```bash
+npm install
+```
+
+Lancer le serveur de développement :
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Le projet est ensuite disponible à l’adresse :
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```bash
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts)
+## Scripts disponibles
 
-## Learn More
+Lancer le projet en développement :
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Vérifier le code :
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm run lint
+```
 
-## Deploy on Vercel
+Créer une version de production :
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npm run build
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Auteur
+
+Projet réalisé par Badr dans le cadre de la formation OpenClassrooms.
