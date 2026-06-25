@@ -12,6 +12,7 @@ import SelectedTags from "@/components/SelectedTags/SelectedTags";
 export default function Home() {
   const [ search , setSearch ] = useState("")
   const [selectedTags, setSelectedTags] = useState([]);
+  const [openedFilter, setOpenedFilter] = useState(null);
 
   const recipesAfterSearch = searchRecipes(recipes, search);
   const filteredRecipes = filterRecipesByTags(recipesAfterSearch, selectedTags);
@@ -45,7 +46,12 @@ export default function Home() {
         (tag) => !(tag.type === type && tag.value === value)
       )
     );
-  }  
+  } 
+
+  // Fonction quiu permets d'ouvrir qu'un dropdown a la fois
+  function toggleFilter(type) {
+    setOpenedFilter((currentFilter) => currentFilter === type ? null : type)
+  }
   return (
     <main className={styles.page}>
       <section className={styles.hero}>
@@ -70,9 +76,9 @@ export default function Home() {
 
       <section className={styles.recipesSection}>
         <div className={styles.filtersBar}>
-          <FilterOptions title="Ingrédients" type="ingredient" options={filterOptions.ingredients} onSelect={addTag} selectedTags={selectedTags}/>
-          <FilterOptions title="Appareils" type="appliance" options={filterOptions.appliances} onSelect={addTag} selectedTags={selectedTags} />
-          <FilterOptions title="Ustensiles" type="appliance" options={filterOptions.ustensils} onSelect={addTag} selectedTags={selectedTags} />
+          <FilterOptions title="Ingrédients" type="ingredient" options={filterOptions.ingredients} isOpen={openedFilter === "ingredient"} onToggle={toggleFilter} onSelect={addTag} selectedTags={selectedTags}/>
+          <FilterOptions title="Appareils" type="appliance" options={filterOptions.appliances} isOpen={openedFilter === "appliance"} onToggle={toggleFilter} onSelect={addTag} selectedTags={selectedTags} />
+          <FilterOptions title="Ustensiles" type="ustensil" options={filterOptions.ustensils} isOpen={openedFilter === "ustensil"} onToggle={toggleFilter} onSelect={addTag} selectedTags={selectedTags} />
           <span className={styles.recipesCount}>{filteredRecipes.length} recettes</span>
         </div>
 

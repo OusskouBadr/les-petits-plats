@@ -3,8 +3,7 @@
 import { useState } from "react";
 import styles from "./FilterOptions.module.css";
 
-export default function FilterOptions({ title, options, type, onSelect, selectedTags }) {
-  const [isOpen, setIsOpen] = useState(false);
+export default function FilterOptions({ title, options, type, onSelect, selectedTags,isOpen, onToggle }) {
   const [optionSearch, setOptionSearch] = useState("");
 
   const selectedValues = selectedTags
@@ -26,7 +25,7 @@ export default function FilterOptions({ title, options, type, onSelect, selected
       <button
         type="button"
         className={styles.filterButton}
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={() => onToggle(type)}
       >
         <span>{title}</span>
         <span className={styles.chevron} aria-hidden="true" />
