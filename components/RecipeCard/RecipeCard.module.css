@@ -1,10 +1,12 @@
 .card {
-    width: 380px;
-    height: 731px;
-    background: white;
-    border-radius: 21px;
-    overflow: hidden;
-    box-shadow: 0 4px 34px 30px rgba(0, 0, 0, 0.04);
+  width: 380px;
+  height: 731px;
+
+  background: white;
+  border-radius: 21px;
+  overflow: hidden;
+
+  box-shadow: 0 4px 34px 30px rgba(0, 0, 0, 0.04);
 }
 
 .cardLink {
@@ -15,16 +17,16 @@
 }
 
 .imageWrapper {
-    position: relative;
-    width: 100%;
-    height: 253px;
+  position: relative;
+  width: 100%;
+  height: 253px;
 }
 
 .cardImage {
-    width: 100%;
-    display: block;
-    object-fit: cover;
-    height: 253px;
+  display: block;
+  width: 100%;
+  height: 253px;
+  object-fit: cover;
 }
 
 .recipeTime {
@@ -126,4 +128,28 @@
     font-family: var(--font-manrope);
     font-size: 14px;
     color: #7a7a7a;
+}
+
+@media (max-width: 480px) {
+  .card {
+    width: 100%;
+    max-width: 380px;
+    height: 731px;
+    margin: 0 auto;
+
+    background: white;
+    border-radius: 21px;
+    overflow: hidden;
+  }
+
+  .imageWrapper {
+    width: 100%;
+    height: 253px;
+  }
+
+  .cardImage {
+    width: 100%;
+    height: 253px;
+    object-fit: cover;
+  }
 }

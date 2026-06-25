@@ -119,14 +119,74 @@
 
 /* RESPONSIVE ZONE  */ 
 
-@media (max-width: 1024px) {
+@media (max-width: 1300px) {
+  .filtersBar,
+  .selectedTags,
+  .recipesGrid,
+  .noResultMessage {
+    width: calc(100% - 48px);
+  }
+
   .recipesGrid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 380px);
+    justify-content: center;
+    column-gap: 48px;
   }
 }
 
-@media (max-width: 680px) {
+@media (max-width: 900px) {
+  .heroTitle {
+    width: calc(100% - 48px);
+    font-size: 34px;
+    line-height: 1.2;
+  }
+
+  .searchForm {
+    width: calc(100% - 48px);
+  }
+
+  .filtersBar {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .filters {
+    width: 100%;
+    flex-direction: column;
+    gap: 16px;
+  }
+
   .recipesGrid {
+    grid-template-columns: 380px;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    min-height: 520px;
+  }
+
+  .heroTitle {
+    font-size: 28px;
+  }
+
+  .searchForm {
+    height: 64px;
+  }
+
+  .filtersBar,
+  .selectedTags,
+  .recipesGrid,
+  .noResultMessage {
+    width: calc(100% - 32px);
+  }
+
+  .recipesGrid {
+    max-width: 380px;
     grid-template-columns: 1fr;
+    justify-items: center;
+    row-gap: 48px;
   }
 }

@@ -1,8 +1,9 @@
 'use client'
-import { useState } from "react";
-import recipes from "@/data/recipes.json";
 import styles from "./page.module.css";
+import recipes from "@/data/recipes.json";
 import RecipeCard from "@/components/RecipeCard/RecipeCard";
+import Image from "next/image";
+import { useState } from "react";
 import { searchRecipes } from "./lib/search";
 import { getFilter, filterRecipesByTags } from "./lib/filters";
 import FilterOptions from "@/components/FilterOptions/FilterOptions";
@@ -38,6 +39,8 @@ export default function Home() {
 
       return [...currentTags, newTag];
     });
+
+    setOpenedFilter(null);
   }
 
   function removeTag(type, value) {
@@ -69,7 +72,12 @@ export default function Home() {
             onChange={(event) => setSearch(event.target.value)}
           />
           <button type="submit" aria-label="Lancer la recherche">
-            <img src="/assets/icons/search.svg" alt=""/>
+          <Image 
+            src="/assets/icons/search.svg"
+            alt=""
+            width={28}
+            height={28}
+          />
           </button>
         </form>
       </section>

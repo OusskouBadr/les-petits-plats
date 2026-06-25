@@ -161,3 +161,9 @@
 .filterItem:hover {
     background: #ffd15b;
 }
+
+@media (max-width: 900px) {
+  .filterGroup {
+    width: 100%;
+  }
+}
